@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Limitações do Estudo e Pontos de Atenção</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            color: #333;
+            overflow: hidden;
+        }
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+            position: relative;
+            background-color: #f8f9fa;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            background-color: #144272;
+            padding: 30px 70px;
+            color: white;
+        }
+        .title {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .content {
+            flex-grow: 1;
+            padding: 50px 70px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .limitations-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .limitation-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+            display: flex;
+            align-items: flex-start;
+            transition: transform 0.3s;
+        }
+        .limitation-card:hover {
+            transform: translateY(-5px);
+        }
+        .limitation-icon {
+            font-size: 48px;
+            color: #144272;
+            margin-right: 25px;
+            flex-shrink: 0;
+        }
+        .limitation-content {
+            flex-grow: 1;
+        }
+        .limitation-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #144272;
+            margin-bottom: 15px;
+        }
+        .limitation-description {
+            font-size: 20px;
+            color: #555;
+            line-height: 1.4;
+        }
+        .highlight {
+            color: #144272;
+            font-weight: 600;
+        }
+        .footer {
+            padding: 15px 70px;
+            background-color: #144272;
+            color: white;
+            font-size: 16px;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="header">
+            <h1 class="title">Limitações do Estudo e Pontos de Atenção</h1>
+        </div>
+        <div class="content">
+            <div class="limitations-container">
+                <div class="limitation-card">
+                    <i class="material-icons limitation-icon">data_array</i>
+                    <div class="limitation-content">
+                        <div class="limitation-title">Dependência de Dados Simulados</div>
+                        <div class="limitation-description">
+                            Utilização de dados simulados devido a desafios na coleta via <span class="highlight">web scraping</span> e indisponibilidade de <span class="highlight">APIs</span>, o que pode introduzir incertezas nos resultados
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="limitation-card">
+                    <i class="material-icons limitation-icon">route</i>
+                    <div class="limitation-content">
+                        <div class="limitation-title">Simulação de Frota Incompleta</div>
+                        <div class="limitation-description">
+                            A integração da biblioteca <span class="highlight">OR-Tools</span> para otimização de roteirização está implementada apenas como esqueleto, sem a funcionalidade completa
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="limitation-card">
+                    <i class="material-icons limitation-icon">psychology</i>
+                    <div class="limitation-content">
+                        <div class="limitation-title">Fatores Qualitativos Não Considerados</div>
+                        <div class="limitation-description">
+                            Aspectos como <span class="highlight">riscos operacionais</span>, <span class="highlight">incentivos fiscais</span>, <span class="highlight">qualidade da infraestrutura</span> e <span class="highlight">disponibilidade de mão de obra</span> não foram incorporados na análise MCDA
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div>Magalu - Análise de Localização para Novo CD Nordeste</div>
+            <div>Setembro/2025</div>
+        </div>
+    </div>
+</body>
+</html>

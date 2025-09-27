@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metodologia de Análise - Visão Geral</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            color: #333;
+            overflow: hidden;
+        }
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+            position: relative;
+            background-color: #f8f9fa;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            background-color: #144272;
+            padding: 30px 70px;
+            color: white;
+        }
+        .title {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .content {
+            flex-grow: 1;
+            padding: 50px 70px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .approach {
+            margin-bottom: 60px;
+        }
+        .section-title {
+            font-size: 28px;
+            font-weight: 600;
+            color: #144272;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+        }
+        .section-title i {
+            margin-right: 15px;
+            font-size: 32px;
+        }
+        .approach-content {
+            background-color: #e8f4f8;
+            border-left: 5px solid #144272;
+            padding: 25px;
+            border-radius: 5px;
+            font-size: 24px;
+            line-height: 1.4;
+            display: flex;
+            align-items: center;
+        }
+        .approach-icon {
+            font-size: 48px;
+            color: #144272;
+            margin-right: 25px;
+        }
+        .approach-text {
+            flex-grow: 1;
+        }
+        .highlight {
+            color: #144272;
+            font-weight: 600;
+        }
+        .structure {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .process-flow {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            flex-grow: 1;
+        }
+        .process-step {
+            flex: 1;
+            background-color: white;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 0 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            position: relative;
+        }
+        .process-step:first-child {
+            margin-left: 0;
+        }
+        .process-step:last-child {
+            margin-right: 0;
+        }
+        .process-step:hover {
+            transform: translateY(-5px);
+        }
+        .step-number {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #144272;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 600;
+            font-size: 16px;
+        }
+        .step-icon {
+            font-size: 48px;
+            color: #144272;
+            margin-bottom: 15px;
+            margin-top: 10px;
+        }
+        .step-title {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #144272;
+        }
+        .step-description {
+            font-size: 18px;
+            color: #555;
+            line-height: 1.4;
+        }
+        .footer {
+            padding: 15px 70px;
+            background-color: #144272;
+            color: white;
+            font-size: 16px;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="header">
+            <h1 class="title">Metodologia de Análise - Visão Geral</h1>
+        </div>
+        <div class="content">
+            <div class="approach">
+                <h2 class="section-title">
+                    <i class="material-icons">analytics</i>
+                    Abordagem
+                </h2>
+                <div class="approach-content">
+                    <i class="material-icons approach-icon">assessment</i>
+                    <div class="approach-text">
+                        Análise de Decisão <span class="highlight">Multicritério</span> (MCDA - <span class="highlight">TOPSIS</span>)
+                    </div>
+                </div>
+            </div>
+            
+            <div class="structure">
+                <h2 class="section-title">
+                    <i class="material-icons">architecture</i>
+                    Estrutura
+                </h2>
+                <div class="process-flow">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <i class="material-icons step-icon">fact_check</i>
+                        <div class="step-title">Planejamento</div>
+                        <div class="step-description">Definição de KPIs e objetivos estratégicos</div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <i class="material-icons step-icon">storage</i>
+                        <div class="step-title">ETL</div>
+                        <div class="step-description">Coleta, pré-processamento e armazenamento de dados</div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <i class="material-icons step-icon">model_training</i>
+                        <div class="step-title">Modelagem</div>
+                        <div class="step-description">Análise preditiva e integração multicritério</div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <i class="material-icons step-icon">dashboard</i>
+                        <div class="step-title">Comunicação</div>
+                        <div class="step-description">Visualização interativa e relatórios executivos</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div>Magalu - Análise de Localização para Novo CD Nordeste</div>
+            <div>Setembro/2025</div>
+        </div>
+    </div>
+</body>
+</html>

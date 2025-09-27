@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ferramenta de Suporte à Decisão (Dashboard Interativo)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            color: #333;
+            overflow: hidden;
+        }
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+            position: relative;
+            background-color: #f8f9fa;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            background-color: #144272;
+            padding: 30px 70px;
+            color: white;
+        }
+        .title {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .content {
+            flex-grow: 1;
+            padding: 40px 70px;
+            display: flex;
+            flex-direction: column;
+        }
+        .dashboard-container {
+            display: flex;
+            flex-grow: 1;
+            gap: 30px;
+        }
+        .dashboard-preview {
+            flex: 3;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .dashboard-header {
+            background-color: #144272;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+        }
+        .dashboard-title {
+            font-size: 22px;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+        .dashboard-image {
+            flex-grow: 1;
+            position: relative;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        .dashboard-mockup {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .dashboard-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(20, 66, 114, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .dashboard-label {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            color: #144272;
+            font-size: 18px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .features-container {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .feature-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+            display: flex;
+            align-items: flex-start;
+            transition: transform 0.3s;
+            flex-grow: 1;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        .feature-icon {
+            font-size: 36px;
+            color: #144272;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        .feature-content {
+            flex-grow: 1;
+        }
+        .feature-title {
+            font-size: 22px;
+            font-weight: 600;
+            color: #144272;
+            margin-bottom: 10px;
+        }
+        .feature-description {
+            font-size: 18px;
+            color: #555;
+            line-height: 1.4;
+        }
+        .highlight {
+            color: #144272;
+            font-weight: 600;
+        }
+        .tech-badge {
+            display: inline-block;
+            background-color: #e8f4f8;
+            color: #144272;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 16px;
+            font-weight: 600;
+            margin-top: 10px;
+            margin-right: 8px;
+        }
+        .footer {
+            padding: 15px 70px;
+            background-color: #144272;
+            color: white;
+            font-size: 16px;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="header">
+            <h1 class="title">Ferramenta de Suporte à Decisão (Dashboard Interativo)</h1>
+        </div>
+        <div class="content">
+            <div class="dashboard-container">
+                <div class="dashboard-preview">
+                    <div class="dashboard-header">
+                        <i class="material-icons">dashboard</i>
+                        <div class="dashboard-title">Dashboard Streamlit</div>
+                    </div>
+                    <div class="dashboard-image">
+                        <img class="dashboard-mockup" src="https://picsum.photos/seed/data-analytics-dashboard-streamlit/800/500.jpg" alt="Dashboard Interativo">
+                        <div class="dashboard-overlay">
+                            <div class="dashboard-label"><a href="https://estudo-de-caso-magalu2025.streamlit.app/">Visualização Interativa</a></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="features-container">
+                    <div class="feature-card">
+                        <i class="material-icons feature-icon">tune</i>
+                        <div class="feature-content">
+                            <div class="feature-title">Ajuste de Pesos em Tempo Real</div>
+                            <div class="feature-description">
+                                Permite que stakeholders ajustem os <span class="highlight">pesos dos KPIs</span> através de sliders intuitivos
+                            </div>
+                            <div>
+                                <span class="tech-badge">Potencial de Consumo</span>
+                                <span class="tech-badge">Tempo de Entrega</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <i class="material-icons feature-icon">autorenew</i>
+                        <div class="feature-content">
+                            <div class="feature-title">Recálculo Imediato do Score</div>
+                            <div class="feature-description">
+                                Recalcula o <span class="highlight">Score TOPSIS</span> automaticamente quando os pesos são modificados
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <i class="material-icons feature-icon">explore</i>
+                        <div class="feature-content">
+                            <div class="feature-title">Exploração de Cenários</div>
+                            <div class="feature-description">
+                                Visualização através de <span class="highlight">gráficos de radar</span> para comparar o desempenho das cidades em diferentes cenários
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div>Magalu - Análise de Localização para Novo CD Nordeste</div>
+            <div>Setembro/2025</div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recomendação de Próximos Passos (Plano de Ação)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            color: #333;
+            overflow: hidden;
+        }
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+            position: relative;
+            background-color: #f8f9fa;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            background-color: #144272;
+            padding: 30px 70px;
+            color: white;
+        }
+        .title {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .content {
+            flex-grow: 1;
+            padding: 50px 70px;
+            display: flex;
+            flex-direction: column;
+        }
+        .recommendations-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            flex-grow: 1;
+        }
+        .recommendation-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .recommendation-card:hover {
+            transform: translateY(-5px);
+        }
+        .recommendation-number {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #144272;
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 700;
+            font-size: 20px;
+            z-index: 1;
+        }
+        .recommendation-icon {
+            font-size: 64px;
+            color: #144272;
+            margin-right: 30px;
+            margin-left: 50px;
+            flex-shrink: 0;
+        }
+        .recommendation-content {
+            flex-grow: 1;
+        }
+        .recommendation-title {
+            font-size: 26px;
+            font-weight: 600;
+            color: #144272;
+            margin-bottom: 10px;
+        }
+        .recommendation-description {
+            font-size: 20px;
+            color: #555;
+            line-height: 1.4;
+        }
+        .highlight {
+            color: #144272;
+            font-weight: 600;
+        }
+        .accent-shape {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 120px;
+            height: 120px;
+            background-color: rgba(20, 66, 114, 0.1);
+            border-radius: 50%;
+            z-index: 0;
+        }
+        .footer {
+            padding: 15px 70px;
+            background-color: #144272;
+            color: white;
+            font-size: 16px;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="header">
+            <h1 class="title">Recomendação de Próximos Passos (Plano de Ação)</h1>
+        </div>
+        <div class="content">
+            <div class="recommendations-container">
+                <div class="recommendation-card">
+                    <div class="recommendation-number">1</div>
+                    <i class="material-icons recommendation-icon">data_object</i>
+                    <div class="recommendation-content">
+                        <div class="recommendation-title">Coleta e Validação de Dados Reais</div>
+                        <div class="recommendation-description">
+                            Priorizar a obtenção de <span class="highlight">dados reais</span> para substituir os simulados, melhorando a precisão das análises e a confiabilidade dos resultados
+                        </div>
+                    </div>
+                    <div class="accent-shape"></div>
+                </div>
+                
+                <div class="recommendation-card">
+                    <div class="recommendation-number">2</div>
+                    <i class="material-icons recommendation-icon">route</i>
+                    <div class="recommendation-content">
+                        <div class="recommendation-title">Otimização de Roteirização</div>
+                        <div class="recommendation-description">
+                            Integrar plenamente a biblioteca <span class="highlight">OR-Tools</span> para refinar as estimativas de custo operacional através de simulações mais precisas de rotas
+                        </div>
+                    </div>
+                    <div class="accent-shape"></div>
+                </div>
+                
+                <div class="recommendation-card">
+                    <div class="recommendation-number">3</div>
+                    <i class="material-icons recommendation-icon">psychology</i>
+                    <div class="recommendation-content">
+                        <div class="recommendation-title">Análise Qualitativa Complementar</div>
+                        <div class="recommendation-description">
+                            Realizar avaliação de <span class="highlight">fatores qualitativos</span> como riscos operacionais, incentivos fiscais e infraestrutura local para complementar a análise quantitativa
+                        </div>
+                    </div>
+                    <div class="accent-shape"></div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div>Magalu - Análise de Localização para Novo CD Nordeste</div>
+            <div>Setembro/2025</div>
+        </div>
+    </div>
+</body>
+</html>

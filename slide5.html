@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Os 4 Key Performance Indicators (KPIs) Estratégicos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            color: #333;
+            overflow: hidden;
+        }
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+            position: relative;
+            background-color: #f8f9fa;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            background-color: #144272;
+            padding: 30px 70px;
+            color: white;
+        }
+        .title {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .content {
+            flex-grow: 1;
+            padding: 50px 70px;
+            display: flex;
+            flex-direction: column;
+        }
+        .intro {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .intro-text {
+            font-size: 22px;
+            color: #555;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .kpis-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            flex-grow: 1;
+        }
+        .kpi-card {
+            width: 48%;
+            background-color: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .kpi-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+        }
+        .kpi-card.primary {
+            background: linear-gradient(135deg, #144272, #205295);
+            color: white;
+        }
+        .kpi-icon {
+            font-size: 64px;
+            margin-right: 30px;
+            color: #144272;
+        }
+        .kpi-card.primary .kpi-icon {
+            color: white;
+        }
+        .kpi-content {
+            flex-grow: 1;
+        }
+        .kpi-name {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .kpi-description {
+            font-size: 18px;
+            opacity: 0.8;
+            margin-bottom: 15px;
+        }
+        .kpi-weight {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: rgba(255,255,255,0.2);
+            color: white;
+            font-size: 36px;
+            font-weight: 700;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .kpi-card:not(.primary) .kpi-weight {
+            background-color: #144272;
+            color: white;
+        }
+        .weight-label {
+            font-size: 14px;
+            opacity: 0.8;
+            position: absolute;
+            bottom: -5px;
+            right: 0;
+            left: 0;
+            text-align: center;
+        }
+        .footer {
+            padding: 15px 70px;
+            background-color: #144272;
+            color: white;
+            font-size: 16px;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="header">
+            <h1 class="title">Os 4 Key Performance Indicators (KPIs) Estratégicos</h1>
+        </div>
+        <div class="content">
+            <div class="intro">
+                <p class="intro-text">KPIs validados e seus pesos definidos pelos stakeholders para a análise multicritério</p>
+            </div>
+            
+            <div class="kpis-container">
+                <div class="kpi-card primary">
+                    <i class="material-icons kpi-icon">trending_up</i>
+                    <div class="kpi-content">
+                        <div class="kpi-name">Potencial de Consumo</div>
+                        <div class="kpi-description">Receita projetada com base em indicadores demográficos e de consumo</div>
+                    </div>
+                    <div class="kpi-weight">
+                        40%
+                        <div class="weight-label">PESO</div>
+                    </div>
+                </div>
+                
+                <div class="kpi-card">
+                    <i class="material-icons kpi-icon">schedule</i>
+                    <div class="kpi-content">
+                        <div class="kpi-name">Tempo de Entrega</div>
+                        <div class="kpi-description">Agilidade na distribuição para as principais capitais e cidades estratégicas</div>
+                    </div>
+                    <div class="kpi-weight">
+                        20%
+                        <div class="weight-label">PESO</div>
+                    </div>
+                </div>
+                
+                <div class="kpi-card">
+                    <i class="material-icons kpi-icon">home</i>
+                    <div class="kpi-content">
+                        <div class="kpi-name">Custo Imobiliário</div>
+                        <div class="kpi-description">Preço médio por m² de terrenos e galpões industriais</div>
+                    </div>
+                    <div class="kpi-weight">
+                        20%
+                        <div class="weight-label">PESO</div>
+                    </div>
+                </div>
+                
+                <div class="kpi-card">
+                    <i class="material-icons kpi-icon">payments</i>
+                    <div class="kpi-content">
+                        <div class="kpi-name">Custo Operacional</div>
+                        <div class="kpi-description">Custo médio por pedido, incluindo logística, mão de obra e energia</div>
+                    </div>
+                    <div class="kpi-weight">
+                        20%
+                        <div class="weight-label">PESO</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div>Magalu - Análise de Localização para Novo CD Nordeste</div>
+            <div>Setembro/2025</div>
+        </div>
+    </div>
+</body>
+</html>

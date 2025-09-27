@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foco Metodológico: O Pipeline ETL</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            color: #333;
+            overflow: hidden;
+        }
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+            position: relative;
+            background-color: #f8f9fa;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            background-color: #144272;
+            padding: 30px 70px;
+            color: white;
+        }
+        .title {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .content {
+            flex-grow: 1;
+            padding: 40px 70px;
+            display: flex;
+            flex-direction: column;
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+        .section-title {
+            font-size: 28px;
+            font-weight: 600;
+            color: #144272;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+        }
+        .section-title i {
+            margin-right: 15px;
+            font-size: 32px;
+        }
+        .etl-flow {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+        .etl-step {
+            width: 30%;
+            background-color: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+            text-align: center;
+            position: relative;
+            transition: transform 0.3s;
+        }
+        .etl-step:hover {
+            transform: translateY(-5px);
+        }
+        .etl-step-icon {
+            font-size: 56px;
+            color: #144272;
+            margin-bottom: 20px;
+        }
+        .etl-step-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #144272;
+            margin-bottom: 15px;
+        }
+        .etl-step-description {
+            font-size: 18px;
+            color: #555;
+        }
+        .etl-arrow {
+            color: #144272;
+            font-size: 48px;
+        }
+        .tools-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .tool-card {
+            width: 48%;
+            background-color: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s;
+        }
+        .tool-card:hover {
+            transform: translateY(-5px);
+        }
+        .tool-icon {
+            font-size: 48px;
+            color: #144272;
+            margin-right: 20px;
+        }
+        .tool-content {
+            flex-grow: 1;
+        }
+        .tool-name {
+            font-size: 22px;
+            font-weight: 600;
+            color: #144272;
+            margin-bottom: 8px;
+        }
+        .tool-description {
+            font-size: 18px;
+            color: #555;
+        }
+        .highlight {
+            color: #144272;
+            font-weight: 600;
+        }
+        .footer {
+            padding: 15px 70px;
+            background-color: #144272;
+            color: white;
+            font-size: 16px;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="header">
+            <h1 class="title">Foco Metodológico: O Pipeline ETL</h1>
+        </div>
+        <div class="content">
+            <div class="section">
+                <h2 class="section-title">
+                    <i class="material-icons">architecture</i>
+                    Arquitetura de Dados
+                </h2>
+                <div class="etl-flow">
+                    <div class="etl-step">
+                        <i class="material-icons etl-step-icon">cloud_download</i>
+                        <div class="etl-step-title">Coleta</div>
+                        <div class="etl-step-description">Extração de dados de múltiplas fontes</div>
+                    </div>
+                    
+                    <i class="material-icons etl-arrow">arrow_forward</i>
+                    
+                    <div class="etl-step">
+                        <i class="material-icons etl-step-icon">cleaning_services</i>
+                        <div class="etl-step-title">Pré-processamento</div>
+                        <div class="etl-step-description">Limpeza, transformação e enriquecimento</div>
+                    </div>
+                    
+                    <i class="material-icons etl-arrow">arrow_forward</i>
+                    
+                    <div class="etl-step">
+                        <i class="material-icons etl-step-icon">storage</i>
+                        <div class="etl-step-title">Armazenamento</div>
+                        <div class="etl-step-description">PostgreSQL/PostGIS para dados geoespaciais</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">
+                    <i class="material-icons">build</i>
+                    Ferramentas Chave
+                </h2>
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <i class="material-icons tool-icon">code</i>
+                        <div class="tool-content">
+                            <div class="tool-name">Web Scraping</div>
+                            <div class="tool-description">BeautifulSoup/Selenium para coleta de dados imobiliários</div>
+                        </div>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <i class="material-icons tool-icon">map</i>
+                        <div class="tool-content">
+                            <div class="tool-name">OSRM/Overpass API</div>
+                            <div class="tool-description">Cálculo de rotas e tempos de entrega</div>
+                        </div>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <i class="material-icons tool-icon">people</i>
+                        <div class="tool-content">
+                            <div class="tool-name">IBGE API</div>
+                            <div class="tool-description">Dados demográficos e potencial de consumo</div>
+                        </div>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <i class="material-icons tool-icon">account_tree</i>
+                        <div class="tool-content">
+                            <div class="tool-name">Apache Airflow</div>
+                            <div class="tool-description">Orquestração e automação do pipeline ETL</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div>Magalu - Análise de Localização para Novo CD Nordeste</div>
+            <div>Setembro/2025</div>
+        </div>
+    </div>
+</body>
+</html>

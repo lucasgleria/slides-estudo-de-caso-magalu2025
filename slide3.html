@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Decisão Final: Recomendação e Score TOPSIS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            color: #333;
+            overflow: hidden;
+        }
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+            position: relative;
+            background-color: #f8f9fa;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            background-color: #144272;
+            padding: 30px 70px;
+            color: white;
+        }
+        .title {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .content {
+            flex-grow: 1;
+            padding: 50px 70px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .recommendation {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .winner {
+            font-size: 64px;
+            font-weight: 700;
+            color: #144272;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        .winner::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background-color: #144272;
+            border-radius: 2px;
+        }
+        .winner-label {
+            font-size: 24px;
+            color: #555;
+        }
+        .scores-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+        .score-card {
+            width: 280px;
+            height: 200px;
+            border-radius: 12px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            position: relative;
+        }
+        .score-card:hover {
+            transform: translateY(-5px);
+        }
+        .salvador-card {
+            background: linear-gradient(135deg, #144272, #205295);
+            color: white;
+            margin-right: 40px;
+        }
+        .recife-card {
+            background-color: #e8f4f8;
+            color: #333;
+        }
+        .city-name {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        .score-value {
+            font-size: 56px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        .score-label {
+            font-size: 18px;
+            opacity: 0.8;
+        }
+        .trophy {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            background-color: #FFD700;
+            color: #333;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .motivation {
+            background-color: #e8f4f8;
+            border-left: 5px solid #144272;
+            padding: 25px;
+            border-radius: 5px;
+            font-size: 22px;
+            line-height: 1.4;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .highlight {
+            color: #144272;
+            font-weight: 600;
+        }
+        .footer {
+            padding: 15px 70px;
+            background-color: #144272;
+            color: white;
+            font-size: 16px;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="header">
+            <h1 class="title">A Decisão Final: Recomendação e Score TOPSIS</h1>
+        </div>
+        <div class="content">
+            <div class="recommendation">
+                <div class="winner">SALVADOR</div>
+                <div class="winner-label">é a opção mais estratégica</div>
+            </div>
+            
+            <div class="scores-container">
+                <div class="score-card salvador-card">
+                    <div class="trophy">
+                        <i class="material-icons">emoji_events</i>
+                    </div>
+                    <div class="city-name">Salvador</div>
+                    <div class="score-value">0.710</div>
+                    <div class="score-label">Score TOPSIS</div>
+                </div>
+                
+                <div class="score-card recife-card">
+                    <div class="city-name">Recife</div>
+                    <div class="score-value">0.290</div>
+                    <div class="score-label">Score TOPSIS</div>
+                </div>
+            </div>
+            
+            <div class="motivation">
+                <span class="highlight">Potencial de Consumo (40% de peso)</span> foi o fator decisivo, onde Salvador demonstra vantagem significativa para capturar o crescimento do mercado
+            </div>
+        </div>
+        <div class="footer">
+            <div>Magalu - Análise de Localização para Novo CD Nordeste</div>
+            <div>Setembro/2025</div>
+        </div>
+    </div>
+</body>
+</html>
