@@ -190,6 +190,15 @@
             background-color: #218838;
         }
 
+        .btn-download {
+            background-color: #1959b9;
+            color: white;
+        }
+
+        .btn-download:hover {
+            background-color: #1959b9;
+        }
+        
         /* Slide Display */
         .slide-display {
             flex-grow: 1;
@@ -509,6 +518,72 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+
+        /* PDF Viewer */
+        .pdf-viewer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #f8f9fa;
+            display: none;
+            flex-direction: column;
+            z-index: 1000;
+        }
+
+        .pdf-viewer.active {
+            display: flex;
+        }
+
+        .pdf-header {
+            background-color: white;
+            padding: 15px 20px;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .pdf-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #144272;
+        }
+
+        .pdf-controls {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .pdf-container {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow: auto;
+        }
+
+        .pdf-frame {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            background-color: white;
+        }
+
+        .btn-back {
+            background-color: #6c757d;
+            color: white;
+        }
+
+        .btn-back:hover {
+            background-color: #5a6268;
+        }
     </style>
 </head>
 <body>
@@ -539,6 +614,14 @@
                     <button class="btn btn-fullscreen" id="fullscreenBtn">
                         <i class="material-icons">fullscreen</i>
                         Fullscreen
+                    </button>
+                    <button class="btn btn-download" id="viewExecutivoBtn">
+                        <i class="material-icons">description</i>
+                        Relatório Executivo Final
+                    </button>
+                    <button class="btn btn-download" id="viewTecnicoBtn">
+                        <i class="material-icons">description</i>
+                        Relatório Técnico Final
                     </button>
                 </div>
             </div>
@@ -605,6 +688,22 @@
         </div>
     </div>
 
+    <!-- PDF Viewer -->
+    <div class="pdf-viewer" id="pdfViewer">
+        <div class="pdf-header">
+            <div class="pdf-title" id="pdfTitle">Visualizando Relatório</div>
+            <div class="pdf-controls">
+                <button class="btn btn-back" id="backToSlidesBtn">
+                    <i class="material-icons">arrow_back</i>
+                    Voltar aos Slides
+                </button>
+            </div>
+        </div>
+        <div class="pdf-container">
+            <iframe class="pdf-frame" id="pdfFrame"></iframe>
+        </div>
+    </div>
+
     <script>
         class SlideManager {
             constructor() {
@@ -613,6 +712,7 @@
                 this.slideData = this.initializeSlideData();
                 this.isFullscreen = false;
                 this.isThumbnailsOpen = false;
+                this.isPdfViewerOpen = false;
                 this.zoomLevel = 1.0;
                 this.minZoom = 0.3;
                 this.maxZoom = 2.0;
@@ -671,6 +771,14 @@
                 this.fullscreenMode = document.getElementById('fullscreenMode');
                 this.thumbnailGrid = document.getElementById('thumbnailGrid');
                 this.thumbnailsContainer = document.getElementById('thumbnailsContainer');
+                
+                // PDF Viewer elements
+                this.pdfViewer = document.getElementById('pdfViewer');
+                this.pdfFrame = document.getElementById('pdfFrame');
+                this.pdfTitle = document.getElementById('pdfTitle');
+                this.viewExecutivoBtn = document.getElementById('viewExecutivoBtn');
+                this.viewTecnicoBtn = document.getElementById('viewTecnicoBtn');
+                this.backToSlidesBtn = document.getElementById('backToSlidesBtn');
             }
 
             bindEvents() {
@@ -685,6 +793,11 @@
                 // Thumbnails
                 this.thumbnailsBtn.addEventListener('click', () => this.showThumbnails());
                 this.closeThumbnailsBtn.addEventListener('click', () => this.hideThumbnails());
+                
+                // PDF Viewer
+                this.viewExecutivoBtn.addEventListener('click', () => this.showPdf('Relatorio_Executivo.pdf', 'Relatório Executivo Final'));
+                this.viewTecnicoBtn.addEventListener('click', () => this.showPdf('Relatorio_Tecnico.pdf', 'Relatório Técnico Final'));
+                this.backToSlidesBtn.addEventListener('click', () => this.hidePdf());
                 
                 // Zoom controls
                 this.zoomInBtn.addEventListener('click', () => this.zoomIn());
@@ -905,7 +1018,29 @@
                 this.zoomOutBtn.disabled = this.zoomLevel <= this.minZoom;
             }
 
+            showPdf(pdfFile, title) {
+                this.pdfTitle.textContent = title;
+                this.pdfFrame.src = pdfFile;
+                this.pdfViewer.classList.add('active');
+                this.isPdfViewerOpen = true;
+                document.body.style.overflow = 'hidden';
+            }
+
+            hidePdf() {
+                this.pdfViewer.classList.remove('active');
+                this.isPdfViewerOpen = false;
+                this.pdfFrame.src = '';
+                document.body.style.overflow = 'auto';
+            }
+
             handleKeyboard(e) {
+                if (this.isPdfViewerOpen) {
+                    if (e.key === 'Escape') {
+                        this.hidePdf();
+                    }
+                    return;
+                }
+
                 if (this.isThumbnailsOpen) {
                     if (e.key === 'Escape') {
                         this.hideThumbnails();
